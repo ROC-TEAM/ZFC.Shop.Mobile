@@ -1,0 +1,140 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+    <title>EProcess登录</title>
+    @Styles.Render("~/Resources/plugins/bootstrap/css/bootstrap.min.css")
+    <link href="~/Resources/plugins/layer/mobile/need/layer.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #f8f8f8;
+        }
+
+        .bg {
+            background-color: #f8f8f8;
+        }
+
+        .bgwhite {
+            background-color: white;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .container-fluid {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .active {
+            background-image: url(../images/loading1.gif);
+            background-repeat: no-repeat;
+            background-position: 115px 11px;
+            z-index: 10;
+        }
+
+        .top {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .row {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        .layui-m-layercont {
+            /*padding: 25px 50px;*/
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .layui-m-layer0 .layui-m-layerchild {
+            width: 80%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 bgwhite top">
+                <div class="pull-left"><img src="~/Resources/images/left.png" /></div>
+                <div class="pull-right"><img src="~/Resources/images/right.png" /></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="row-fluid bg" style="padding-top:30px;">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <input id="username" class="form-control" type="text" placeholder="WWID或AD" />
+                    </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control" type="password" placeholder="密码" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success form-control" id="btnlogin" onclick="login()">登录</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+        <div class="row-fluid bg">
+            <div style="width:100%;height:200px;"></div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-xs-12 bg">
+                WARNING NOTICE: This system is restricted solely to Johnson & Johnson users for legitimate business only. The actual or atteempted unauthorized access, use or modification of this system is stricity prohibited by Johnson & Johnson. Unauthorized users are subject to Company disciplinary proceedings and/or criminal and civil penalties under state, federal or other applicable domestic and  foreign laws. The use of this system may be monitored and recorded for administrative and security reasons. If such monitoring and/or recording reveal possible evidence of criminal activity, Johnson & Johnson may provide the evidence of such monitoring to law enforcement officials. Xian Janssen Pharmaceutical. 2011
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/Resources/plugins/jquery/jquery-1.10.2.min.js")
+    <script src="~/Resources/plugins/layer/mobile/layer.js" merge="true"></script>
+    <script src="~/Resources/scripts/common.js"></script>
+    <script type="text/javascript">
+        //登录验证
+        function login() {
+            var eid = $.trim($("#username").val());
+            var pwd = $.trim($("#password").val());
+
+            if (eid == '') {
+                $.alertMsg('请填写WWID或AD');
+                return;
+            }
+
+            if (pwd == '') {
+                $.alertMsg('请填写密码');
+                return;
+            }
+
+            var btn = $('#btnlogin');
+            btn.addClass('active').attr('disabled', 'disabled');
+            var layer_index = 0;
+
+            var url = '@Url.Content("~/login/checkLogin")';
+            var actionUrl = '@ViewBag.ActionURL';
+            var skipUrl = actionUrl || '@Url.Content("~/main")';
+            $.myAjax(url, { eid: eid, pwd: pwd }, function (data) {
+                var flag = data.Type <= 1;
+                if (flag) {
+                    window.location.href = skipUrl;
+                }
+                else {
+                    $.alertMsg(data.Msg);
+                    btn.removeClass('active').removeAttr('disabled');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

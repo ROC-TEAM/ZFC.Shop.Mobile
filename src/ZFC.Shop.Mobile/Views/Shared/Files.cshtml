@@ -1,0 +1,33 @@
+﻿@using ZFC.Shop.Entity
+@model dynamic
+
+@{
+    IEnumerable<dynamic> info = Model.Files;
+}
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <div class="panel-title">支持件</div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed ">
+            <tr>
+                <th class="wh50p">文件名</th>
+                <th class="wh25p">上传时间</th>
+                <th class="wh25p">上传人</th>
+            </tr>
+            @if (info != null)
+            {
+                foreach (var item in info)
+                {
+                    <tr>
+                        <td>@item.FileName</td>
+                        <td>@item.CreateTime.ToString(WebConst.DateTimeFmt1)</td>
+                        <td>@item.CreateBy</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
+

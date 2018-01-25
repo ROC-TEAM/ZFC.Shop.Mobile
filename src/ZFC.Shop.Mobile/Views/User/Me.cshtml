@@ -1,0 +1,69 @@
+﻿@using ZFC.Shop.Entity
+@model User
+@{
+    ViewBag.Title = "我的信息";
+    var parentUser = ViewBag.ParentUser as User;
+    string parentUserName = parentUser == null ? "" : parentUser.GetDisplayName();
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">我的信息<span class="mt8 pull-right caret caretup"></span></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <tr>
+                        <th class="wh50p">工号</th>
+                        <th class="wh50p">姓名</th>
+                    </tr>
+                    <tr>
+                        <td>@Model.WWID</td>
+                        <td>@Model.GetDisplayName()</td>
+                    </tr>
+                    <tr>
+                        <th>主管经理</th>
+                        <th>部门</th>
+                    </tr>
+                    <tr>
+                        <td>@parentUserName</td>
+                        <td>@Model.Department</td>
+                    </tr>
+                    <tr>
+                        <th>职位</th>
+                        <th>手机</th>
+                    </tr>
+                    <tr>
+                        <td>@Model.Title</td>
+                        <td>@Model.GetPhone()</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="javascript:void(0)" id="logout">退出登录</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#logout').click(function () {
+                var url = '@Url.Content("~/user/logout")';
+                var skipUrl = '@Url.Content("~/login")';
+                $.myAjax(url, {}, function (data) {
+                    var flag = data.Type <= 1;
+                    if (flag) {
+                        window.location.href = skipUrl;
+                    }
+                    else {
+                        $.alertMsg(data.Msg);
+                    }
+                });
+            });
+        });
+    </script>
+}
