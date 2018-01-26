@@ -9,12 +9,12 @@ using ZFC.Shop.Utility;
 
 namespace ZFC.Shop.Mobile.Controllers
 {
-    public class UserController : BaseController
+    public class UserController : Controller
     {
         readonly IUserService uService;
-        public UserController(IUserService us)
+        public UserController(/*IUserService us*/)
         {
-            uService = us;
+            //uService = us;
         }
 
         public ActionResult Index()
@@ -25,10 +25,10 @@ namespace ZFC.Shop.Mobile.Controllers
         // GET: User
         public ActionResult Me()
         {
-            var user = base.User;
-            var parentUser = uService.GetUserByWWID(user.ManagerWWID);
-            ViewBag.ParentUser = parentUser;
-            return View(user);
+            //var user = base.User;
+            //var parentUser = uService.GetUserByWWID(user.ManagerWWID);
+            //ViewBag.ParentUser = parentUser;
+            return View();
         }
 
         [HttpPost]

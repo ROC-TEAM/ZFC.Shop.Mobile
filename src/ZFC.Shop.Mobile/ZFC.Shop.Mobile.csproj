@@ -105,7 +105,33 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Resources\css\main.css" />
+    <Content Include="Resources\css\wap.css" />
     <Content Include="Resources\images\60x60.gif" />
+    <Content Include="Resources\images\img1.jpg" />
+    <Content Include="Resources\images\img3.jpg" />
+    <Content Include="Resources\images\uhomeapp1.png" />
+    <Content Include="Resources\images\uhomeapp10.png" />
+    <Content Include="Resources\images\uhomeapp11.png" />
+    <Content Include="Resources\images\uhomeapp12.png" />
+    <Content Include="Resources\images\uhomeapp13.png" />
+    <Content Include="Resources\images\uhomeapp2.png" />
+    <Content Include="Resources\images\uhomeapp3.png" />
+    <Content Include="Resources\images\uhomeapp4.png" />
+    <Content Include="Resources\images\uhomeapp5.png" />
+    <Content Include="Resources\images\uhomeapp6.png" />
+    <Content Include="Resources\images\uhomeapp7.png" />
+    <Content Include="Resources\images\uhomeapp8.png" />
+    <Content Include="Resources\images\uhomeapp9.png" />
+    <Content Include="Resources\plugins\amazeui\css\amazeui.css" />
+    <Content Include="Resources\plugins\amazeui\css\amazeui.flat.css" />
+    <Content Include="Resources\plugins\amazeui\css\amazeui.flat.min.css" />
+    <Content Include="Resources\plugins\amazeui\css\amazeui.min.css" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.ie8polyfill.js" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.ie8polyfill.min.js" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.js" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.min.js" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.widgets.helper.js" />
+    <Content Include="Resources\plugins\amazeui\js\amazeui.widgets.helper.min.js" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table-zh-CN.js" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table-zh-CN.min.js" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table.css" />
@@ -248,6 +274,8 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -278,6 +306,13 @@
     <Content Include="Views\Home\Msg.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\Contract.cshtml" />
+    <Content Include="Resources\plugins\amazeui\.gitkeep" />
+    <Content Include="Resources\plugins\amazeui\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resources\plugins\amazeui\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Resources\plugins\amazeui\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resources\plugins\amazeui\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Resources\plugins\amazeui\fonts\FontAwesome.otf" />
+    <Content Include="Views\ShoppingCart\Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -304,6 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\scripts\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

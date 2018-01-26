@@ -1,51 +1,36 @@
-﻿@using ZFC.Shop.Entity
-@model User
-@{
-    ViewBag.Title = "我的信息";
-    var parentUser = ViewBag.ParentUser as User;
-    string parentUserName = parentUser == null ? "" : parentUser.GetDisplayName();
+﻿@{
+    ViewBag.Title = "用户中心";
+    ViewBag.SiteTitle = "用户中心";
+    ViewBag.Banner = false;
 }
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">我的信息<span class="mt8 pull-right caret caretup"></span></div>
-            </div>
-            <div class="panel-body">
-                <table class="table table-condensed">
-                    <tr>
-                        <th class="wh50p">工号</th>
-                        <th class="wh50p">姓名</th>
-                    </tr>
-                    <tr>
-                        <td>@Model.WWID</td>
-                        <td>@Model.GetDisplayName()</td>
-                    </tr>
-                    <tr>
-                        <th>主管经理</th>
-                        <th>部门</th>
-                    </tr>
-                    <tr>
-                        <td>@parentUserName</td>
-                        <td>@Model.Department</td>
-                    </tr>
-                    <tr>
-                        <th>职位</th>
-                        <th>手机</th>
-                    </tr>
-                    <tr>
-                        <td>@Model.Title</td>
-                        <td>@Model.GetPhone()</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><a href="javascript:void(0)" id="logout">退出登录</a></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+<div class="uchome-info">
+    <div class="uchome-info-uimg">
+        <img src="~/resources/images/img1.jpg">
     </div>
+    <div class="uchome-info-uinfo">
+        <p>王小丫，欢迎光临！[<a href="#" class="white">退出登录</a>]</p>
+        <p>帐号：XiaoyaWang，余额：<span class="red">￥20000.00</span></p>
+        <p>积分：<span class="red">2531</span>，消息：<a href="#" class="red">12</a></p>
+    </div>
+</div>
+
+<div class="am-cf uchome-apps">
+    <ul class="am-avg-sm-3 uchome-apps-ul">
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp1.png" class="am-img-responsive"></p><p class="namep">我的订单</p><p class="lastp">0笔</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp2.png" class="am-img-responsive"></p><p class="namep">积分订单</p><p class="lastp">0笔</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp3.png" class="am-img-responsive"></p><p class="namep">团购订单</p><p class="lastp">0笔</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp4.png" class="am-img-responsive"></p><p class="namep">购物车</p><p class="lastp">0件</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp5.png" class="am-img-responsive"></p><p class="namep">积分充值</p><p class="lastp">0个</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp6.png" class="am-img-responsive"></p><p class="namep">金币记录</p><p class="lastp">0条</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp7.png" class="am-img-responsive"></p><p class="namep">收藏商品</p><p class="lastp">0件</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp8.png" class="am-img-responsive"></p><p class="namep">申请提现</p><p class="lastp">￥0</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp9.png" class="am-img-responsive"></p><p class="namep">我的推广</p><p class="lastp">160</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp10.png" class="am-img-responsive"></p><p class="namep">我的粉丝</p><p class="lastp">0位</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp11.png" class="am-img-responsive"></p><p class="namep">我的伙伴</p><p class="lastp">0位</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp12.png" class="am-img-responsive"></p><p class="namep">我的消息</p><p class="lastp">0条</p></a></li>
+        <li><a href="#"><p class="imgp"><img src="~/resources/images/uhomeapp13.png" class="am-img-responsive"></p><p class="namep">金币充值</p><p class="lastp">￥0</p></a></li>
+    </ul>
+
 </div>
 
 @section scripts{

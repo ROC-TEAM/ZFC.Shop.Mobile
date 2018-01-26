@@ -1,72 +1,105 @@
-﻿@{
-    Layout = null;
+﻿
+@{
+    ViewBag.Title = "首页";
 }
+<div class="am-cf">
+    <ul class="am-nav am-nav-pills am-nav-justify">
+        <li class="am-dropdown" data-am-dropdown="">
+            <a class="am-dropdown-toggle" href="javascript:;">
+                地区 <span class="am-icon-caret-down"></span>
+            </a>
+            <ul class="am-dropdown-content">
+                <li><a href="#">天河区</a></li>
+                <li><a href="#">越秀区</a></li>
+                <li><a href="#">荔湾区</a></li>
+                <li><a href="#">海珠区</a></li>
+            </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown="">
+            <a class="am-dropdown-toggle" href="javascript:;">
+                商家分类 <span class="am-icon-caret-down"></span>
+            </a>
+            <ul class="am-dropdown-content">
+                <li><a href="#">分类1</a></li>
+                <li><a href="#">分类2</a></li>
+            </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown="">
+            <a class="am-dropdown-toggle" href="javascript:;">
+                默认排序 <span class="am-icon-caret-down"></span>
+            </a>
+            <ul class="am-dropdown-content">
+                <li><a href="#">排序1</a></li>
+                <li><a href="#">排序2</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title</title>
-    <link href="~/resources/plugins/mui/css/mui.min.css" rel="stylesheet" />
-    <link href="~/resources/css/main.css" rel="stylesheet" />
-</head>
-<body>
-    <nav class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item mui-active" href="#tabbar" id="home">
-            <span class="mui-icon mui-icon-home"></span>
-            <span class="mui-tab-label">首页</span>
-        </a>
-        <a class="mui-tab-item" href="#tabbar-with-chat" id="msg">
-            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-            <span class="mui-tab-label">消息</span>
-        </a>
-        <a class="mui-tab-item" @*href="#tabbar-with-contact"*@ id="contract">
-            <span class="mui-icon mui-icon-contact"></span>
-            <span class="mui-tab-label">通讯录</span>
-        </a>
-        <a class="mui-tab-item" href="#tabbar-with-map" id="setting">
-            <span class="mui-icon mui-icon-gear"></span>
-            <span class="mui-tab-label">设置</span>
-        </a>
-    </nav>
-    <script src="~/resources/plugins/jquery/jquery-1.10.2.min.js"></script>
-    <script src="~/resources/plugins/mui/js/mui.min.js"></script>
-    <script type="text/javascript">
-        //mui.init({
-        //    swipeBack: true
-        //});
-
-        mui.init({
-            subpages: [{
-                url: '/home/msg',
-                id: 'msg'
-                //,styles: {
-                //    top: '45px',//mui标题栏默认高度为45px；
-                //    bottom: '0px'//默认为0px，可不定义；
-                //}
-            }, { url: '/home/contract', id: 'contract' }]
-        });
-
-        //mui.plusReady(function () {
-
-        //});
-
-        //document.getElementById('contract2').addEventListener('click', function () {
-        //    //打开关于页面
-        //    alert('aaaa');
-        //    createWindow('/home/contract', 'contract');
-        //});
-
-        function createWindow(url, id) {
-            mui.openWindow({
-                url: url,
-                id: id
-            });
-        }
-    </script>
-</body>
-</html>
+<div class="my-search-title-panel">
+    <div class="withdrawals-panel">
+        <div class="groupby-img-panle"><a href="#"><img src="~/Resources/images/img3.jpg" class="am-img-responsive"></a></div>
+        <div class="groupby-info-panle">
+            <h3><a href="#">广州XXX店</a></h3>
+            <p>地址：广州市天河区XXX</p>
+            <p>主营：宝贝</p>
+            <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
+            <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+        </div>
+    </div>
+    <div class="withdrawals-panel">
+        <div class="groupby-img-panle"><a href="#"><img src="~/Resources/images/img3.jpg" class="am-img-responsive"></a></div>
+        <div class="groupby-info-panle">
+            <h3><a href="#">广州XXX店</a></h3>
+            <p>地址：广州市天河区XXX</p>
+            <p>主营：宝贝</p>
+            <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
+            <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+        </div>
+    </div>
+    <div class="withdrawals-panel">
+        <div class="groupby-img-panle"><a href="#"><img src="~/Resources/images/img3.jpg" class="am-img-responsive"></a></div>
+        <div class="groupby-info-panle">
+            <h3><a href="#">广州XXX店</a></h3>
+            <p>地址：广州市天河区XXX</p>
+            <p>主营：宝贝</p>
+            <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
+            <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+        </div>
+    </div>
+    <div class="withdrawals-panel">
+        <div class="groupby-img-panle"><a href="#"><img src="~/Resources/images/img3.jpg" class="am-img-responsive"></a></div>
+        <div class="groupby-info-panle">
+            <h3><a href="#">广州XXX店</a></h3>
+            <p>地址：广州市天河区XXX</p>
+            <p>主营：宝贝</p>
+            <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
+            <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+        </div>
+    </div>
+    <div class="withdrawals-panel">
+        <div class="groupby-img-panle"><a href="#"><img src="~/Resources/images/img3.jpg" class="am-img-responsive"></a></div>
+        <div class="groupby-info-panle">
+            <h3><a href="#">广州XXX店</a></h3>
+            <p>地址：广州市天河区XXX</p>
+            <p>主营：宝贝</p>
+            <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
+            <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+        </div>
+    </div>
+    <ul data-am-widget="pagination" class="am-pagination am-pagination-select am-no-layout">
+        <li class="am-pagination-prev ">
+            <a href="#" class="">上一页</a>
+        </li>
+        <li class="am-pagination-select">
+            <select>
+                <option value="#" class="">1 / 3</option>
+                <option value="#" class="">2 / 3</option>
+                <option value="#" class="">3 / 3</option>
+            </select>
+        </li>
+        <li class="am-pagination-next ">
+            <a href="#" class="">下一页</a>
+        </li>
+    </ul>
+</div>
