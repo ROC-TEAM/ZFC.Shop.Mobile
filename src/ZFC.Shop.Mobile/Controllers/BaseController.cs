@@ -17,6 +17,8 @@ namespace ZFC.Shop.Mobile.Controllers
         public BaseController()
         {
 
+
+
         }
 
         public IUserService UserService { get; set; }
