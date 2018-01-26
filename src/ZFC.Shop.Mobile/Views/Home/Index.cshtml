@@ -1,3 +1,72 @@
 ﻿@{
     Layout = null;
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <link href="~/resources/plugins/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="~/resources/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="#tabbar" id="home">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-chat" id="msg">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+            <span class="mui-tab-label">消息</span>
+        </a>
+        <a class="mui-tab-item" @*href="#tabbar-with-contact"*@ id="contract">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">通讯录</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map" id="setting">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">设置</span>
+        </a>
+    </nav>
+    <script src="~/resources/plugins/jquery/jquery-1.10.2.min.js"></script>
+    <script src="~/resources/plugins/mui/js/mui.min.js"></script>
+    <script type="text/javascript">
+        //mui.init({
+        //    swipeBack: true
+        //});
+
+        mui.init({
+            subpages: [{
+                url: '/home/msg',
+                id: 'msg'
+                //,styles: {
+                //    top: '45px',//mui标题栏默认高度为45px；
+                //    bottom: '0px'//默认为0px，可不定义；
+                //}
+            }, { url: '/home/contract', id: 'contract' }]
+        });
+
+        //mui.plusReady(function () {
+
+        //});
+
+        //document.getElementById('contract2').addEventListener('click', function () {
+        //    //打开关于页面
+        //    alert('aaaa');
+        //    createWindow('/home/contract', 'contract');
+        //});
+
+        function createWindow(url, id) {
+            mui.openWindow({
+                url: url,
+                id: id
+            });
+        }
+    </script>
+</body>
+</html>

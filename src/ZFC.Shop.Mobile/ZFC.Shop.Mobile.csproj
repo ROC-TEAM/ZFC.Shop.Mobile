@@ -105,6 +105,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Resources\css\main.css" />
+    <Content Include="Resources\images\60x60.gif" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table-zh-CN.js" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table-zh-CN.min.js" />
     <Content Include="Resources\plugins\bootstrap-table\bootstrap-table.css" />
@@ -230,6 +231,10 @@
     <Content Include="Resources\plugins\layui\lay\modules\tree.js" />
     <Content Include="Resources\plugins\layui\lay\modules\upload.js" />
     <Content Include="Resources\plugins\layui\lay\modules\util.js" />
+    <Content Include="Resources\plugins\mui\css\mui.css" />
+    <Content Include="Resources\plugins\mui\css\mui.min.css" />
+    <Content Include="Resources\plugins\mui\js\mui.js" />
+    <Content Include="Resources\plugins\mui\js\mui.min.js" />
     <Content Include="Resources\plugins\weui\weui.css" />
     <Content Include="Resources\plugins\weui\weui.min.css" />
     <Content Include="Web.config" />
@@ -263,18 +268,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Views\Travel\Index.cshtml" />
     <None Include="Properties\PublishProfiles\EWECHAT.pubxml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Main\Todo.cshtml" />
-    <Content Include="Views\Main\History.cshtml" />
     <Content Include="Views\User\Me.cshtml" />
-    <Content Include="Views\Shared\Base.cshtml" />
-    <Content Include="Views\Shared\Logs.cshtml" />
-    <Content Include="Views\Shared\Files.cshtml" />
     <Content Include="Resources\plugins\layui\font\iconfont.eot" />
     <Content Include="Resources\plugins\layui\font\iconfont.ttf" />
     <Content Include="Resources\plugins\layui\font\iconfont.woff" />
+    <Content Include="Resources\plugins\mui\fonts\mui.ttf" />
+    <Content Include="Views\Home\Msg.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Home\Contract.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -300,7 +303,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\images\" />
     <Folder Include="Resources\scripts\" />
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ using ZFC.Shop.Utility;
 
 namespace ZFC.Shop.Mobile.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         public static readonly string CorpId = WebConfigurationManager.AppSettings["CorpId"];
         public static readonly string AppSecret = WebConfigurationManager.AppSettings["AppSecret"];
@@ -30,7 +30,17 @@ namespace ZFC.Shop.Mobile.Controllers
             //log.Info("跳转URL", url);
             //return Redirect(url);
 
-            return RedirectToAction("index", "main");
+            return View();
+        }
+
+        public ActionResult Msg()
+        {
+            return View();
+        }
+
+        public ActionResult Contract()
+        {
+            return View();
         }
 
         public ActionResult RedirectBack(string code, string state)
