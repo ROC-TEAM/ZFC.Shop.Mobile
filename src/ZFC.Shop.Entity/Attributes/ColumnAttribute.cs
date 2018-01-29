@@ -5,7 +5,7 @@ namespace ZFC.Shop.Entity
     [AttributeUsage(AttributeTargets.Property)]
     public class ColumnAttribute : Attribute
     {
-        public ColumnAttribute(bool ignore, string name = "")
+        public ColumnAttribute(bool ignore, string name)
         {
             this.IsKey = false;
             this.Increment = false;

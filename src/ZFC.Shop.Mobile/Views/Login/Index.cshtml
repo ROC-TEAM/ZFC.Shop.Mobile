@@ -4,137 +4,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
-    <title>EProcess登录</title>
-    @Styles.Render("~/Resources/plugins/bootstrap/css/bootstrap.min.css")
-    <link href="~/Resources/plugins/layer/mobile/need/layer.css" rel="stylesheet" />
-    <style type="text/css">
-        body {
-            margin: 0px;
-            padding: 0px;
-            background-color: #f8f8f8;
-        }
-
-        .bg {
-            background-color: #f8f8f8;
-        }
-
-        .bgwhite {
-            background-color: white;
-        }
-
-        .clear {
-            clear: both;
-        }
-
-        .container-fluid {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .active {
-            background-image: url(../images/loading1.gif);
-            background-repeat: no-repeat;
-            background-position: 115px 11px;
-            z-index: 10;
-        }
-
-        .top {
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-
-        .row {
-            margin-right: 0px;
-            margin-left: 0px;
-        }
-
-        .layui-m-layercont {
-            /*padding: 25px 50px;*/
-            text-align: left;
-            padding-left: 50px;
-        }
-
-        .layui-m-layer0 .layui-m-layerchild {
-            width: 80%;
-            max-width: 500px;
-        }
-    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>登录</title>
+    <link href="~/resources/plugins/amazeui/css/amazeui.min.css" rel="stylesheet" />
+    <link href="~/resources/css/wap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 bgwhite top">
-                <div class="pull-left"><img src="~/Resources/images/left.png" /></div>
-                <div class="pull-right"><img src="~/Resources/images/right.png" /></div>
+    <div class="container">
+        <header data-am-widget="header" class="am-header am-header-default my-header">
+            <div class="am-header-left am-header-nav">
+                <a href="javascript:void(0)" id="btnBack">
+                    <i class="am-header-icon am-icon-chevron-left"></i>
+                </a>
             </div>
-        </div>
-        <div class="clear"></div>
-        <div class="row-fluid bg" style="padding-top:30px;">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-10">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <input id="username" class="form-control" type="text" placeholder="WWID或AD" />
-                    </div>
-                    <div class="form-group">
-                        <input id="password" class="form-control" type="password" placeholder="密码" />
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-success form-control" id="btnlogin" onclick="login()">登录</button>
-                    </div>
-                </form>
+            <h1 class="am-header-title">
+                <a href="javascript:void(0)">用户登录</a>
+            </h1>
+            <div class="am-header-right am-header-nav">
+                <a href="/">
+                    <i class="am-header-icon  am-icon-home"></i>
+                </a>
             </div>
-            <div class="col-xs-1"></div>
+        </header>
+        <div class="cart-panel">
+            <form class="am-form" id="form1">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-user" style="color:#329cd9"></i>
+                    <input type="text" class="am-form-field  my-radius" placeholder="邮箱" id="eid" autocomplete="off" data-msg="请输入邮箱" required />
+                </div>
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-lock" style="color:#329cd9"></i>
+                    <input type="password" class="am-form-field  my-radius" placeholder="密码" id="pwd" autocomplete="off" data-msg="请输入密码" required maxlength="15" minlength="5" />
+                </div>
+                <div class="am-checkbox">
+                    <label>
+                        <input type="checkbox" id="remember" value="1" checked="checked" /> 记住密码
+                    </label>
+                </div>
+                <p class="am-text-center"><button type="button" class="am-btn am-btn-danger am-radius am-btn-block" id="btnLogin">立即登录</button></p>
+            </form>
         </div>
-        <div class="row-fluid bg">
-            <div style="width:100%;height:200px;"></div>
-        </div>
-        <div class="row-fluid">
-            <div class="col-xs-12 bg">
-                WARNING NOTICE: This system is restricted solely to Johnson & Johnson users for legitimate business only. The actual or atteempted unauthorized access, use or modification of this system is stricity prohibited by Johnson & Johnson. Unauthorized users are subject to Company disciplinary proceedings and/or criminal and civil penalties under state, federal or other applicable domestic and  foreign laws. The use of this system may be monitored and recorded for administrative and security reasons. If such monitoring and/or recording reveal possible evidence of criminal activity, Johnson & Johnson may provide the evidence of such monitoring to law enforcement officials. Xian Janssen Pharmaceutical. 2011
+    </div>
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="myModalLoding">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd" id="">正在载入...</div>
+            <div class="am-modal-bd">
+                <span class="am-icon-spinner am-icon-spin"></span>
             </div>
         </div>
     </div>
-    @Scripts.Render("~/Resources/plugins/jquery/jquery-1.10.2.min.js")
-    <script src="~/Resources/plugins/layer/mobile/layer.js" merge="true"></script>
-    <script src="~/Resources/scripts/common.js"></script>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="myModal">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">提示</div>
+            <div class="am-modal-bd" id="myModalBody">
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">确定</span>
+            </div>
+        </div>
+    </div>
+    <script src="~/resources/plugins/jquery/jquery-1.10.2.min.js"></script>
+    <script src="~/resources/plugins/amazeui/js/amazeui.min.js"></script>
+    <script src="~/resources/scripts/common.js"></script>
     <script type="text/javascript">
         //登录验证
         function login() {
-            var eid = $.trim($("#username").val());
-            var pwd = $.trim($("#password").val());
-
-            if (eid == '') {
-                $.alertMsg('请填写WWID或AD');
-                return;
-            }
-
-            if (pwd == '') {
-                $.alertMsg('请填写密码');
-                return;
-            }
-
-            var btn = $('#btnlogin');
-            btn.addClass('active').attr('disabled', 'disabled');
-            var layer_index = 0;
+            var validator = $('#form1').data('amui.validator');
+            var valid = validator.isFormValid();
+            if (!valid) return;
 
             var url = '@Url.Content("~/login/checkLogin")';
-            var actionUrl = '@ViewBag.ActionURL';
-            var skipUrl = actionUrl || '@Url.Content("~/main")';
-            $.myAjax(url, { eid: eid, pwd: pwd }, function (data) {
+            var actionUrl = '@ViewBag.RedirectURL';
+            var skipUrl = actionUrl || '@Url.Content("~/user")';
+            var data = $(document.body).getFormData();
+            $.myAjax(url, data, function (data) {
                 var flag = data.Type <= 1;
                 if (flag) {
                     window.location.href = skipUrl;
                 }
                 else {
-                    $.alertMsg(data.Msg);
-                    btn.removeClass('active').removeAttr('disabled');
+                    $.alertMsg({ msg: data.Msg });
                 }
             });
         }
+
+        $(function () {
+            var $form = $('#form1');
+
+            $form.validator({
+                onValid: function (obj) {
+                    hideMsg(obj.field);
+                },
+                onInValid: function (obj) {
+                    createMsg(obj.field);
+                }
+            });
+
+            function createMsg(field) {
+                var id = (field.id || field.name) + '_msg';
+                var $this = $(field);
+
+                var offset = $this.offset();
+                var msg = $this.data('msg') || validator.getValidationMessage($this.data('validity'));
+
+                var $tooltip = $('#' + id);
+                if ($tooltip.length > 0) {
+                    $tooltip.show();
+                }
+                else {
+                    $tooltip = $('<div class="vld-tooltip" id="' + id + '"></div>');
+                    $tooltip.appendTo(document.body);
+                    $tooltip.text(msg).show().css({
+                        left: offset.left + 10,
+                        top: offset.top + $this.outerHeight() + 10
+                    });
+                }
+            }
+
+            function hideMsg(field) {
+                var id = (field.id || field.name) + '_msg';
+                $('#' + id).hide();
+            }
+
+            $('#btnLogin').click(function () {
+                login();
+            });
+
+            $('#btnBack').click(function () {
+                history.go(-1);
+            });
+        });
     </script>
 </body>
 </html>

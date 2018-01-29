@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="User\UserService.cs" />
-    <Compile Include="Common\APIService.cs" />
+    <Compile Include="Common\EncryptionService.cs" />
+    <Compile Include="User\CustomerService.cs" />
     <Compile Include="Common\ConfigService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

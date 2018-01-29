@@ -41,17 +41,19 @@
   <ItemGroup>
     <Compile Include="Attributes\ColumnAttribute.cs" />
     <Compile Include="Attributes\TableAttribute.cs" />
-    <Compile Include="User\User.cs" />
+    <Compile Include="User\Customer.cs" />
     <Compile Include="Common\AjaxResult.cs" />
-    <Compile Include="Common\ApiResult.cs" />
     <Compile Include="Common\IDependency.cs" />
     <Compile Include="Common\Pagination.cs" />
     <Compile Include="Common\Suggestion.cs" />
     <Compile Include="Common\Web.cs" />
     <Compile Include="Common\WebConst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\CustomerPassword.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="User\Ext\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

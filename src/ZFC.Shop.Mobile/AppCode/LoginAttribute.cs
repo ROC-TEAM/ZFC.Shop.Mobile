@@ -17,7 +17,7 @@ namespace ZFC.Shop.Mobile
 
         }
 
-        public IUserService UserService { get; set; }
+        public ICustomerService UserService { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {

@@ -9,7 +9,5 @@ namespace ZFC.Shop.Data
     {
         public static string Default = "connectString";
         
-        public static string SmartBox = "connectString";
-        public static string BPM = "BPM";
     }
 }

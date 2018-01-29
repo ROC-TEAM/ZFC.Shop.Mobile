@@ -263,6 +263,7 @@
     <Content Include="Resources\plugins\mui\js\mui.min.js" />
     <Content Include="Resources\plugins\weui\weui.css" />
     <Content Include="Resources\plugins\weui\weui.min.css" />
+    <Content Include="Resources\scripts\common.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -338,7 +339,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\scripts\" />
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <PropertyGroup>

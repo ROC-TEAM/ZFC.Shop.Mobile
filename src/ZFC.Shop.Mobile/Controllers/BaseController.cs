@@ -12,24 +12,22 @@ namespace ZFC.Shop.Mobile.Controllers
     [Login]
     public class BaseController : Controller
     {
-        private User user;
+        private Customer user;
 
         public BaseController()
         {
 
-
-
         }
 
-        public IUserService UserService { get; set; }
+        public ICustomerService UserService { get; set; }
 
-        public new User User
+        public new Customer User
         {
             get
             {
                 if (user == null)
                 {
-                    user = UserService.GetCurrent();
+                    user = UserService.GetCurrentUser();
                 }
                 return user;
             }

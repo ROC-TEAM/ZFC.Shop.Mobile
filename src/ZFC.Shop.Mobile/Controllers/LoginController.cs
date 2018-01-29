@@ -11,8 +11,8 @@ namespace ZFC.Shop.Mobile.Controllers
 {
     public class LoginController : Controller
     {
-        readonly IUserService uService;
-        public LoginController(IUserService us)
+        readonly ICustomerService uService;
+        public LoginController(ICustomerService us)
         {
             uService = us;
         }
@@ -22,9 +22,9 @@ namespace ZFC.Shop.Mobile.Controllers
             bool isLogin = uService.IsLogin();
             if (isLogin)
             {
-                return RedirectToAction("index", "main");
+                return RedirectToAction("index", "user");
             }
-            ViewBag.ActionURL = redirectUrl;
+            ViewBag.RedirectURL = redirectUrl;
             return View();
         }
 

@@ -4,11 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.IO;
+using System.Configuration;
 
 namespace ZFC.Shop.Utility
 {
     public class UtilityHepler
     {
+        /// <summary>
+        /// 获得 web config appSettings
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string GetAppSetting(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
+        /// <summary>
+        ///  获得 web config appSettings 转换为 int 值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static int GetAppSettingInt(string key)
+        {
+            string value = GetAppSetting(key);
+            return value.ToInt();
+        }
+
         /// <summary>
         /// 下载文件
         /// </summary>

@@ -21,7 +21,7 @@ namespace ZFC.Shop.Data
         private Stopwatch watch;
         public RepositoryBase()
         {
-            client = new DbClient();
+            client = new DbClient(DbConfig.Default);
 
             sql = this.GetSqlLam<T>();
 

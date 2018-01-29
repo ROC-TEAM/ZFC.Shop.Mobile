@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="User\UserRepository.cs" />
+    <Compile Include="User\CustomerRepository.cs" />
     <Compile Include="Config\DbConfig.cs" />
     <Compile Include="Config\RegisterConfig.cs" />
     <Compile Include="Config\TableConfig.cs" />
