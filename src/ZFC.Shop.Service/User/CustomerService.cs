@@ -22,7 +22,7 @@ namespace ZFC.Shop.Service
         /// <param name="eid"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        AjaxResult Login(string eid, string pwd);
+        AjaxResult Login(string eid, string pwd, bool remember);
 
         /// <summary>
         /// 判断用户是否登录
@@ -47,7 +47,7 @@ namespace ZFC.Shop.Service
             encryService = ies;
         }
 
-        public AjaxResult Login(string eid, string pwd)
+        public AjaxResult Login(string eid, string pwd, bool remember)
         {
             AjaxResult ajaxResult = new AjaxResult(false);
             var user = userRep.GetUser(eid);
@@ -81,6 +81,7 @@ namespace ZFC.Shop.Service
                     //reset the counter
                     user.FailedLoginAttempts = 0;
                 }
+                userRep.UpdateUser(user, false);
                 //_customerService.UpdateCustomer(customer);
 
                 ajaxResult.Msg = "密码错误";
@@ -93,22 +94,27 @@ namespace ZFC.Shop.Service
             user.RequireReLogin = false;
             user.LastLoginDateUtc = DateTime.UtcNow;
 
-            bool updatedUser = false;
-
+            bool updatedUser = userRep.UpdateUser(user, true);
 
             if (updatedUser)
             {
                 ajaxResult.Type = ResultType.Success;
                 ajaxResult.Msg = "登录成功";
 
-                string loginCookieKey = WebConst.UserLoginCookieKey;
-                string value = encryService.EncryptText(user.Username);
-                CookieHelper.Add(loginCookieKey, value, DateTimeType.Minute, 30);
+                if (remember)
+                {
+                    string loginCookieKey = WebConst.UserLoginCookieKey;
+                    string value = encryService.EncryptText(user.Username);
+                    CookieHelper.Add(loginCookieKey, value, DateTimeType.Minute, 30);
+                }
 
                 string sessionKey = WebConst.UserLoginSessionKey;
                 SessionHelper.Add(sessionKey, user);
             }
-
+            else
+            {
+                ajaxResult.Msg = "系统错误,暂时无法登录系统";
+            }
             return ajaxResult;
         }
 

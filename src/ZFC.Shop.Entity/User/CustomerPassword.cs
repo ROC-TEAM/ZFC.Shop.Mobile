@@ -3,13 +3,13 @@
 namespace ZFC.Shop.Entity
 {
     [Table("CustomerPassword")]
-    public class CustomerPassword
+    public class CustomerPassword : BaseEntity
     {
-        /// <summary>
-        ///Id
-        /// </summary>
-        [Column(true)]
-        public int Id { get; set; }
+        ///// <summary>
+        /////Id
+        ///// </summary>
+        //[Column(true)]
+        //public int Id { get; set; }
         /// <summary>
         ///CustomerId
         /// </summary>

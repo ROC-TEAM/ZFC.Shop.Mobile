@@ -4,13 +4,13 @@ namespace ZFC.Shop.Entity
 {
     [Serializable]
     [Table("Customer")]
-    public class Customer
+    public class Customer : BaseEntity
     {
-        /// <summary>
-        ///Id
-        /// </summary>
-        [Column(true)]
-        public int Id { get; set; }
+        ///// <summary>
+        /////Id
+        ///// </summary>
+        //[Column(true)]
+        //public int Id { get; set; }
         /// <summary>
         ///CustomerGuid
         /// </summary>

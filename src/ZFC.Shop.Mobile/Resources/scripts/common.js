@@ -17,25 +17,15 @@ jQuery.fn.extend({
     }
 });
 
-//$.getFormData = function (doc) {
-//    doc = doc || document.body;
-//    var array = $(doc).not('.ignore').find('input,select,textarea').serializeArray();
-//    var data = {};
-//    $.each(array, function (i, item) {
-//        data[item.name] = item.value;
-//    });
-//    return data;
-//}
-
 $.alertMsg = function (o) {
-    var id = '#' + o.id || 'myModal';
+    var id = '#' + (o.id || 'myModal');
     var title = o.title || '提示';
-    var msg = o.msg || '未设置';
+    var msg = o.msg || '未设置信息';
     var bodyId = id + 'Body';
     var show = o.show || true;
     $(bodyId).html(msg);
     if (show) {
-        $(id).modal('open');
+        $(id).modal({ dimmer: true });
     }
     else {
         $(id).modal('close');
@@ -52,13 +42,16 @@ $.myAjax = function (u, d, s, o) {
         dataType: 'json',
         data: d,
         beforeSend: function () { $('#myModalLoding').modal('open'); },
-        success: s,
+        success: function (res) {
+            $('#myModalLoding').modal('close');
+            if (s && $.isFunction(s)) s(res);
+        },
         error: function (xhr, status, error) {
             console.log('网络发生错误--' + error);
         },
         complete: function () {
             isClick = false;
-            $('#myModalLoding').modal('close');
+            //$('#myModalLoding').modal('close');
         }
     };
     if (!o) o = {};

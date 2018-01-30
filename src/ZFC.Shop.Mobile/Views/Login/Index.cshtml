@@ -35,11 +35,11 @@
             <form class="am-form" id="form1">
                 <div class="am-form-group am-form-icon">
                     <i class="am-icon-user" style="color:#329cd9"></i>
-                    <input type="text" class="am-form-field  my-radius" placeholder="邮箱" id="eid" autocomplete="off" data-msg="请输入邮箱" required />
+                    <input type="text" value="admin@admin.com" class="am-form-field  my-radius" placeholder="邮箱" id="eid" autocomplete="off" data-msg="请输入邮箱" required />
                 </div>
                 <div class="am-form-group am-form-icon">
                     <i class="am-icon-lock" style="color:#329cd9"></i>
-                    <input type="password" class="am-form-field  my-radius" placeholder="密码" id="pwd" autocomplete="off" data-msg="请输入密码" required maxlength="15" minlength="5" />
+                    <input type="password" class="am-form-field  my-radius" placeholder="密码" id="pwd" autocomplete="off" data-msg="请输入密码" required maxlength="15" minlength="5" value="111111" />
                 </div>
                 <div class="am-checkbox">
                     <label>
@@ -137,6 +137,12 @@
 
             $('#btnBack').click(function () {
                 history.go(-1);
+            });
+
+            $('#remember').click(function () {
+                var flag = $(this).prop('checked');
+                var v = flag ? '1' : '0';
+                $(this).val(v);
             });
         });
     </script>

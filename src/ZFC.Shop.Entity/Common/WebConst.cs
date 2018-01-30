@@ -12,5 +12,15 @@ namespace ZFC.Shop.Entity
         public static readonly string UserLoginCookieKey = "ZFC_UID";
 
         public static string DateTimeFmt1 = "yy/MM/dd";
+
+
+        #region cache key
+
+        /// <summary>
+        ///扩展字段列表缓存key
+        /// </summary>
+        public static string GenericAttibuteListCacheKey = "GenericAttibuteListCache";
+
+        #endregion
     }
 }

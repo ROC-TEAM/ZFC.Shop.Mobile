@@ -23,6 +23,14 @@ namespace ZFC.Shop.Data
         /// <param name="userId"></param>
         /// <returns></returns>
         CustomerPassword GetUserPassword(int userId);
+
+        /// <summary>
+        /// 修改用户
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="success"></param>
+        /// <returns></returns>
+        bool UpdateUser(Customer model, bool success);
     }
 
     public class UserRepository : RepositoryBase<Customer>, IUserRepository
@@ -46,6 +54,31 @@ namespace ZFC.Shop.Data
             var passowrdSql = base.GetSqlLam<CustomerPassword>();
             passowrdSql.SelectAll().Where(m => m.CustomerId == userId);
             return base.GetEntity<CustomerPassword>(passowrdSql.GetSql(), passowrdSql.GetParameters());
+        }
+
+        public bool UpdateUser(Customer model, bool success)
+        {
+            bool flag = false;
+            if (success)
+            {
+                flag = base.Update(model, m => new
+                {
+                    m.FailedLoginAttempts,
+                    m.CannotLoginUntilDateUtc,
+                    m.RequireReLogin,
+                    m.LastLoginDateUtc,
+                    m.LastIpAddress
+                }, m => m.Id == model.Id);
+            }
+            else
+            {
+                flag = base.Update(model, m => new
+                {
+                    m.FailedLoginAttempts,
+                    m.CannotLoginUntilDateUtc
+                }, m => m.Id == model.Id);
+            }
+            return flag;
         }
     }
 }

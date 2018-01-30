@@ -16,7 +16,7 @@ namespace ZFC.Shop.Data
         {
             var assembly = typeof(AjaxResult).Assembly;
             var types = assembly.GetExportedTypes();
-            //tables.Add(new SqlTableEntity(typeof(fwNode), "T_TAM_FrameWorkNode"));
+            
             foreach (Type item in types)
             {
                 var attr = item.GetCustomAttributes(true).OfType<TableAttribute>().FirstOrDefault();
@@ -49,12 +49,13 @@ namespace ZFC.Shop.Data
             if (attrs == null || attrs.Length < 1) return column;
 
             column = new SqlColumnEntity(p.Name);
-           
+
             int columnType = 1;
             var cattr = attrs.OfType<ColumnAttribute>().FirstOrDefault();
             if (cattr != null)
             {
-                column.FieldName = cattr.Name;
+                if (!string.IsNullOrEmpty(cattr.Name))
+                    column.FieldName = cattr.Name;
                 column.Key = cattr.IsKey;
                 column.Increment = cattr.Increment;
                 column.Ignore = cattr.Ignore;

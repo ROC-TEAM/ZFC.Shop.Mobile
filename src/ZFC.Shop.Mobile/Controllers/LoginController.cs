@@ -29,9 +29,9 @@ namespace ZFC.Shop.Mobile.Controllers
         }
 
         [HttpPost]
-        public ActionResult CheckLogin(string eid, string pwd)
+        public ActionResult CheckLogin(string eid, string pwd, int remember)
         {
-            var result = uService.Login(eid, pwd);
+            var result = uService.Login(eid, pwd, remember == 1);
             return Json(result);
         }
     }
