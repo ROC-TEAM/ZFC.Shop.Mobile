@@ -11,10 +11,10 @@ namespace ZFC.Shop.Mobile.Controllers
 {
     public class UserController : BaseController
     {
-        readonly ICustomerService user;
+        readonly ICustomerService userService;
         public UserController(ICustomerService us)
         {
-            user = us;
+            userService = us;
         }
 
         public ActionResult Index()
@@ -26,13 +26,20 @@ namespace ZFC.Shop.Mobile.Controllers
         public ActionResult Me()
         {
             var user = base.User;
+            ViewBag.UserExt = userService.GetCurrentUserExt();
             return View(user);
         }
 
-        [HttpPost]
         public ActionResult Logout()
         {
-            var result = user.Logout();
+            var result = userService.Logout();
+            return RedirectToAction("index", "login");
+        }
+
+        [HttpPost]
+        public ActionResult LogoutPost()
+        {
+            var result = userService.Logout();
             return Json(result);
         }
     }

@@ -17,6 +17,12 @@ namespace ZFC.Shop.Service
         Customer GetCurrentUser();
 
         /// <summary>
+        /// 获得当前用户扩展字段
+        /// </summary>
+        /// <returns></returns>
+        CustomerExt GetCurrentUserExt();
+
+        /// <summary>
         /// 登录
         /// </summary>
         /// <param name="eid"></param>
@@ -41,10 +47,14 @@ namespace ZFC.Shop.Service
     {
         readonly IUserRepository userRep;
         readonly IEncryptionService encryService;
-        public CustomerService(IUserRepository ur, IEncryptionService ies)
+        readonly IGenericAttributeService genService;
+        readonly IPictureService pictureServic;
+        public CustomerService(IUserRepository ur, IEncryptionService ies, IGenericAttributeService igas, IPictureService ips)
         {
             userRep = ur;
             encryService = ies;
+            genService = igas;
+            pictureServic = ips;
         }
 
         public AjaxResult Login(string eid, string pwd, bool remember)
@@ -125,7 +135,7 @@ namespace ZFC.Shop.Service
             if (user != null) return user;
 
             string cookieKey = WebConst.UserLoginCookieKey;
-            string username = CookieHelper.Get<string>(cookieKey);
+            string username = CookieHelper.Get(cookieKey);
             if (!username.IsEmpty())
             {
                 username = encryService.DecryptText(username);
@@ -136,6 +146,18 @@ namespace ZFC.Shop.Service
                 }
             }
             return user;
+        }
+
+        public CustomerExt GetCurrentUserExt()
+        {
+            var user = this.GetCurrentUser();
+            CustomerExt model = new CustomerExt();
+            string firstName = genService.GetGenericAttributeValue(user, CustomerExt.FirstName);
+            string lastName = genService.GetGenericAttributeValue(user, CustomerExt.LastName);
+            string pictureId = genService.GetGenericAttributeValue(user, CustomerExt.AvatarPictureId);
+            model.DisplayName = lastName + firstName;
+            model.AvatarUrl = pictureServic.GetPictureUrl(pictureId.ToInt(), CustomerExt.AvatarPictureSize);
+            return model;
         }
 
         public bool IsLogin()

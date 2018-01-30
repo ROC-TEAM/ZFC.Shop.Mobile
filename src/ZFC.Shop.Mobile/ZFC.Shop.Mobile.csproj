@@ -264,6 +264,9 @@
     <Content Include="Resources\plugins\weui\weui.css" />
     <Content Include="Resources\plugins\weui\weui.min.css" />
     <Content Include="Resources\scripts\common.js" />
+    <Content Include="UploadFiles\images\default-avatar.jpg" />
+    <Content Include="UploadFiles\images\default-image.gif" />
+    <Content Include="UploadFiles\images\default-image.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +279,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -314,6 +318,7 @@
     <Content Include="Resources\plugins\amazeui\fonts\fontawesome-webfont.woff2" />
     <Content Include="Resources\plugins\amazeui\fonts\FontAwesome.otf" />
     <Content Include="Views\ShoppingCart\Cart.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -339,6 +344,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="UploadFiles\images\thumbs\" />
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <PropertyGroup>

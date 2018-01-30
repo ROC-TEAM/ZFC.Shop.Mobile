@@ -44,7 +44,11 @@ namespace ZFC.Shop.Data
         {
             var userSql = base.GetSqlLam<Customer>();
             userSql.SelectAll();
-            userSql.Where(m => m.Active == true && m.Deleted == false && m.Username == email);
+            userSql.Where(m => m.Active == true && m.Deleted == false);
+            userSql.And().Begin();
+            userSql.Or(m => m.Username == email);
+            userSql.Or(m => m.Email == email);
+            userSql.End();
 
             return base.GetEntity(userSql.GetSql(), userSql.GetParameters());
         }

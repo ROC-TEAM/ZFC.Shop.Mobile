@@ -42,6 +42,10 @@
     <Compile Include="Attributes\ColumnAttribute.cs" />
     <Compile Include="Attributes\TableAttribute.cs" />
     <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Picture\Picture.cs" />
+    <Compile Include="Picture\PictureType.cs" />
+    <Compile Include="Picture\ProductPicture.cs" />
+    <Compile Include="Picture\ResizeType.cs" />
     <Compile Include="User\Customer.cs" />
     <Compile Include="Common\AjaxResult.cs" />
     <Compile Include="Common\IDependency.cs" />

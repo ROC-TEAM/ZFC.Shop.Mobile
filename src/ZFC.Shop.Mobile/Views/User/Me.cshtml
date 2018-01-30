@@ -1,16 +1,19 @@
-﻿@{
+﻿@using ZFC.Shop.Entity
+@{
     ViewBag.Title = "用户中心";
     ViewBag.SiteTitle = "用户中心";
     ViewBag.Banner = false;
+    Customer user = Model;
+    CustomerExt userExt = ViewBag.UserExt;
 }
 <div class="uchome-info">
     <div class="uchome-info-uimg">
-        <img src="~/resources/images/img1.jpg">
+        <img src="@userExt.AvatarUrl">
     </div>
     <div class="uchome-info-uinfo">
-        <p>王小丫，欢迎光临！[<a href="#" class="white">退出登录</a>]</p>
-        <p>帐号：XiaoyaWang，余额：<span class="red">￥20000.00</span></p>
-        <p>积分：<span class="red">2531</span>，消息：<a href="#" class="red">12</a></p>
+        <p>@userExt.DisplayName , 欢迎光临！[<a href="/user/logout" class="white">退出登录</a>]</p>
+        <p>帐号: @user.Username @*, 余额: <span class="red">￥20000.00</span>*@</p>
+        <p>积分: <span class="red">2531</span>, 消息: <a href="#" class="red">12</a></p>
     </div>
 </div>
 
