@@ -282,6 +282,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -319,6 +320,7 @@
     <Content Include="Resources\plugins\amazeui\fonts\FontAwesome.otf" />
     <Content Include="Views\ShoppingCart\Cart.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Vendor\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,7 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CacheHelper.cs" />
+    <Compile Include="Cache\CacheExtensions.cs" />
+    <Compile Include="Cache\CacheFactory.cs" />
+    <Compile Include="Cache\HttpCacheManager.cs" />
+    <Compile Include="Cache\ICacheManager.cs" />
+    <Compile Include="Cache\IStaticCacheManager.cs" />
+    <Compile Include="Cache\MemoryCacheManager.cs" />
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Cookie\CookieHelper.cs" />
     <Compile Include="Cookie\DateTimeTypeHelper.cs" />

@@ -30,7 +30,7 @@ namespace ZFC.Shop.Mobile.Controllers
             //log.Info("跳转URL", url);
             //return Redirect(url);
 
-            return View();
+            return RedirectToAction("index", "vendor");
         }
 
         public ActionResult Msg()

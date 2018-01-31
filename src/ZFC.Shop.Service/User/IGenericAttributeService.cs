@@ -37,22 +37,21 @@ namespace ZFC.Shop.Service
     public class GenericAttributeService : IGenericAttributeService
     {
         private readonly IGenericAttributeRepository genRep;
-
+        private readonly ICacheManager cacheManager;
         public GenericAttributeService(IGenericAttributeRepository igar)
         {
             genRep = igar;
+            cacheManager = CacheFactory.GetCacheManager();
         }
 
         public IEnumerable<GenericAttribute> GetAllList()
         {
             string key = WebConst.GenericAttibuteListCacheKey;
-            IEnumerable<GenericAttribute> list = CacheHelper.Get<IEnumerable<GenericAttribute>>(key);
-            if (list != null && list.Count() > 0)
+
+            var list = cacheManager.Get(key, () =>
             {
-                return list;
-            }
-            list = genRep.GetList();
-            CacheHelper.Add<IEnumerable<GenericAttribute>>(key, list);
+                return genRep.GetList();
+            });
             return list;
         }
 

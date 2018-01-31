@@ -708,10 +708,8 @@ namespace ZFC.Shop.Service
 
                         SaveThumb(thumbFilePath, thumbFileName, picture.MimeType, pictureBinaryResized);
                     }
-
                     mutex.ReleaseMutex();
                 }
-
             }
             url = GetThumbUrl(thumbFileName, storeLocation);
             return url;

@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="Attributes\ColumnAttribute.cs" />
     <Compile Include="Attributes\TableAttribute.cs" />
     <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Common\BasePageEntity.cs" />
     <Compile Include="Picture\Picture.cs" />
     <Compile Include="Picture\PictureType.cs" />
     <Compile Include="Picture\ProductPicture.cs" />
@@ -55,7 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\CustomerPassword.cs" />
     <Compile Include="User\Ext\CustomerExt.cs" />
+    <Compile Include="User\Ext\VendorEntity.cs" />
+    <Compile Include="User\Ext\VendorQueryEntity.cs" />
     <Compile Include="User\GenericAttribute.cs" />
+    <Compile Include="User\Vendor.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

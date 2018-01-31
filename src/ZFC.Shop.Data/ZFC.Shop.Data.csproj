@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Roc.Data, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Roc.Data, Version=1.2.0.0, Culture=neutral, PublicKeyToken=7936dc4dfb215ed2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\ROC.DATA\Roc.Data.dll</HintPath>
     </Reference>
@@ -52,6 +52,7 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\GenericAttributeRepository.cs" />
+    <Compile Include="User\VendorRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZFC.Shop.Entity\ZFC.Shop.Entity.csproj">
