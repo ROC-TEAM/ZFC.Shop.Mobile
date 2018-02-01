@@ -28,10 +28,10 @@ namespace ZFC.Shop.Data
             if (reader != null)
             {
                 model.Total = reader.Read<int>().FirstOrDefault();
-                list = reader.Read<Vendor, Picture, Address, VendorEntity>((v, p, a) =>
-                 {
-                     return new VendorEntity(v, p, a);
-                 }, new string[] { "VP", "PA" }).ToList();
+                list = reader.Read<Vendor, Picture, Address, VendorProductEntity, VendorEntity>((v, p, a, vp) =>
+                  {
+                      return new VendorEntity(v, p, a, vp);
+                  }, new string[] { "VP", "PA", "AC" }).ToList();
             }
             return list;
         }

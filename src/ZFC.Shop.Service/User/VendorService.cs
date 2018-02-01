@@ -31,8 +31,12 @@ namespace ZFC.Shop.Service
             {
                 foreach (var item in list)
                 {
-                    if (item.Picture != null && item.Picture.Id > 0)
+                    item.Vendor.Description = UtilityHepler.LostHTML(item.Vendor.Description);
+                    if (item.Picture != null && item.Vendor.PictureId > 0)
+                    {
+                        item.Picture.Id = item.Vendor.PictureId;
                         item.VendorPicURL = pictureService.GetPictureUrl(item.Picture, VendorEntity.VendorThumbPictureSize);
+                    }
                 }
             }
             return list;

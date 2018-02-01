@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\CustomerPassword.cs" />
     <Compile Include="User\Ext\CustomerExt.cs" />
+    <Compile Include="User\Ext\VenderProductEntity.cs" />
     <Compile Include="User\Ext\VendorEntity.cs" />
     <Compile Include="User\Ext\VendorQueryEntity.cs" />
     <Compile Include="User\GenericAttribute.cs" />

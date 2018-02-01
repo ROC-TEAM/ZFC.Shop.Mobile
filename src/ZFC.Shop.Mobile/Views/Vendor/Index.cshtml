@@ -46,10 +46,10 @@
                 <div class="groupby-img-panle"><a href="#"><img src="@item.VendorPicURL" class="am-img-responsive"></a></div>
                 <div class="groupby-info-panle">
                     <h3><a href="#">@item.Vendor.Name</a></h3>
-                    <p>地址：@item.GetVendorAddress()</p>
-                    <p>主营：宝贝</p>
-                    <p>共有：<span class="am-text-success">10</span>件宝贝      最近成交：<span class="am-text-danger">10</span>件</p>
-                    <p><i class="am-icon-map-marker"></i> 1.2公里</p>
+                    <p>地址: @item.GetVendorAddress()</p>
+                    <p>主营: 宝贝</p>
+                    <p>共有: <span class="am-text-success">@item.VendorProduct.ProductCount</span> 件宝贝      最近成交：<span class="am-text-danger">@item.VendorProduct.BuyProductCount</span> 件</p>
+                    <p>描述: @Html.Raw(item.Vendor.Description)</p>
                 </div>
             </div>
         }

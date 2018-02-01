@@ -18,15 +18,18 @@ namespace ZFC.Shop.Entity
 
         public Address Address { get; set; }
 
+        public VendorProductEntity VendorProduct { get; set; }
+
         public string VendorPicURL { get; set; }
 
         public VendorEntity() { }
 
-        public VendorEntity(Vendor v, Picture p, Address a)
+        public VendorEntity(Vendor v, Picture p, Address a, VendorProductEntity vp)
         {
             this.Vendor = v;
             this.Picture = p;
             this.Address = a;
+            this.VendorProduct = vp;
         }
 
         public string GetVendorAddress()

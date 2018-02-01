@@ -201,7 +201,7 @@ namespace ZFC.Shop.Service
 
         public PictureService(IPictureRepository ipr)
         {
-            storeInDb = false;
+            storeInDb = true;
             multipleThumbDirectories = false;
             //webRootPath = AppDomain.CurrentDomain.BaseDirectory;
             defaultImageQuality = 80;
@@ -881,7 +881,7 @@ namespace ZFC.Shop.Service
             picture.TitleAttribute = titleAttribute;
             picture.IsNew = isNew;
 
-            _pictureRepository.Update(picture);
+            _pictureRepository.Update(picture, m => m.Id == picture.Id);
 
             if (!StoreInDb)
                 SavePictureInFile(picture.Id, pictureBinary, mimeType);

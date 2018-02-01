@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.IO;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace ZFC.Shop.Utility
 {
@@ -80,6 +81,23 @@ namespace ZFC.Shop.Utility
                     userIp = http_x_forwarded_for;
             }
             return userIp;
+        }
+
+        /// <summary>
+        /// 过滤字符串中的html代码
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>返回过滤之后的字符串</returns>
+        public static string LostHTML(string s)
+        {
+            string str = "";
+            if (!string.IsNullOrEmpty(s))
+            {
+                string Pattern = "<\\/*[^<>]*>";
+                str = Regex.Replace(s, Pattern, "");
+                return (str.Replace("\\r\\n", "")).Replace("\\r", "").Replace("&nbsp;", "");
+            }
+            return str;
         }
     }
 }
