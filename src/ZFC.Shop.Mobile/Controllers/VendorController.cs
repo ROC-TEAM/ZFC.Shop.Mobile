@@ -9,7 +9,7 @@ using ZFC.Shop.Utility;
 
 namespace ZFC.Shop.Mobile.Controllers
 {
-    public class VendorController : Controller
+    public class VendorController : BaseFrontPageController
     {
         readonly IVendorService vendorService;
         public VendorController(IVendorService ivs)
@@ -20,11 +20,22 @@ namespace ZFC.Shop.Mobile.Controllers
 
         public ActionResult Index(VendorQueryEntity model)
         {
+            //if (model == null) model = new VendorQueryEntity();
+
+            //var list = vendorService.GetVendorList(model);
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetVendorList(VendorQueryEntity model)
+        {
             if (model == null) model = new VendorQueryEntity();
 
             var list = vendorService.GetVendorList(model);
 
-            return View(list);
+            return Json(new { Data = list, PageCount = model.GetTotalPageCount() });
         }
     }
 }

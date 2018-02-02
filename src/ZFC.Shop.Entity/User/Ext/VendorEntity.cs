@@ -22,6 +22,8 @@ namespace ZFC.Shop.Entity
 
         public string VendorPicURL { get; set; }
 
+        public string VendorAddress { get { return this.GetVendorAddress(); } }
+
         public VendorEntity() { }
 
         public VendorEntity(Vendor v, Picture p, Address a, VendorProductEntity vp)

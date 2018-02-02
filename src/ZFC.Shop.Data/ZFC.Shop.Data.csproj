@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Picture\PictureRepository.cs" />
+    <Compile Include="Product\ProductRepository.cs" />
     <Compile Include="User\CustomerRepository.cs" />
     <Compile Include="Config\DbConfig.cs" />
     <Compile Include="Config\RegisterConfig.cs" />

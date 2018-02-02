@@ -48,6 +48,9 @@
     <Compile Include="Picture\PictureType.cs" />
     <Compile Include="Picture\ProductPicture.cs" />
     <Compile Include="Picture\ResizeType.cs" />
+    <Compile Include="Product\Ext\ProductEntity.cs" />
+    <Compile Include="Product\Ext\ProductQueryEntity.cs" />
+    <Compile Include="Product\Product.cs" />
     <Compile Include="User\Customer.cs" />
     <Compile Include="Common\AjaxResult.cs" />
     <Compile Include="Common\IDependency.cs" />

@@ -1,6 +1,7 @@
 ﻿@using ZFC.Shop.Entity
 @{
-    ViewBag.Title = "首页";
+    ViewBag.Title = "摄影作品";
+    ProductQueryEntity query = ViewBag.QueryModel;
 }
 <div class="am-cf">
     <ul class="am-nav am-nav-pills am-nav-justify">
@@ -29,39 +30,40 @@
                 默认排序 <span class="am-icon-caret-down"></span>
             </a>
             <ul class="am-dropdown-content">
-                <li><a href="#">排序1</a></li>
-                <li><a href="#">排序2</a></li>
+                <li><a href="#">默认</a></li>
+                <li><a href="#">名称</a></li>
+                <li><a href="#">价格</a></li>
+                <li><a href="#">上架时间</a></li>
             </ul>
         </li>
     </ul>
 </div>
 
-<div class="my-search-title-panel" id="vendorList"></div>
+<div class="my-search-title-panel" id="productList"></div>
+
 @section scripts{
     <script type="text/javascript">
         layui.use(['flow'], function () {
             var $ = layui.jquery, flow = layui.flow;
             flow.load({
-                elem: '#vendorList',
+                elem: '#productList',
                 isLazyimg: true,
                 done: function (page, next) {
-                    $.myAjax('/vendor/getVendorList', { PageIndex: page }, function (res) {
-                        next(getVendorDetailHtml(res.Data), page < res.PageCount);
+                    $.myAjax('/product/getProductList', { PageIndex: page, VendorId: '@query.VendorId' }, function (res) {
+                        next(getProductDetailHtml(res.Data), page < res.PageCount);
                     });
                 }
             });
 
-            function getVendorDetailHtml(data) {
+            function getProductDetailHtml(data) {
                 var html = [];
                 layui.each(data, function (index, item) {
-                    var url = '/product/' + item.Vendor.Id;
                     html.push('<div class="withdrawals-panel">');
-                    html.push('<div class="groupby-img-panle"><a href="' + url + '"><img lay-src="' + item.VendorPicURL + '" class="am-img-responsive"></a></div>');
+                    html.push('<div class="groupby-img-panle"><a href="#"><img lay-src="' + item.ProductPicURL + '" class="am-img-responsive"></a></div>');
                     html.push('<div class="groupby-info-panle">');
-                    html.push('<h3><a href="' + url + '">' + item.Vendor.Name + '</a></h3>');
-                    html.push('<p>地址: ' + item.VendorAddress + '</p>');
-                    html.push('<p>共有: <span class="am-text-success">' + item.VendorProduct.ProductCount + '</span> 件宝贝     最近成交: <span class="am-text-danger">' + item.VendorProduct.BuyProductCount + '</span> 件</p>');
-                    html.push('<p>描述: ' + item.Vendor.Description + '</p>');
+                    html.push('<h3><a href="#">' + item.Product.Name + '</a></h3>');
+                    html.push('<p>价格: <span class="am-text-success">' + item.Product.Price + '</span> </p>');
+                    html.push('<p>描述: ' + item.Product.ShortDescription + '</p>');
                     html.push('</div>');
                     html.push('</div>');
                 });
@@ -70,4 +72,5 @@
         });
     </script>
 }
+
 

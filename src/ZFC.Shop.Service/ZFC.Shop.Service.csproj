@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Common\EncryptionService.cs" />
     <Compile Include="Picture\PictureService.cs" />
+    <Compile Include="Product\ProductService.cs" />
     <Compile Include="User\CustomerService.cs" />
     <Compile Include="Common\ConfigService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

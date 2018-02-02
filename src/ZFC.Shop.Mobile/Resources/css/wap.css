@@ -84,8 +84,8 @@ overflow:hidden
 	.up-radio-item3{ background:#ac73c6}
 	.up-radio-item input{ margin-top:35px; margin-left:-10px !important;}
 .groupby-t-p{ margin-bottom:0.8rem;}
-	.groupby-img-panle{ width:38%; float:left; margin-top:25px}
-	.groupby-info-panle{ width:60%; float:right;margin-top:25px}
+	.groupby-img-panle{ width:38%; float:left; margin-top:5px}/*margin-top:25px*/
+	.groupby-info-panle{ width:60%; float:right;margin-top:5px}/*margin-top:25px*/
 		.groupby-info-panle h3{font-size:24px; color:#333; margin-bottom:1rem}
 		.groupby-info-panle p{font-size:18px; color:#888888; margin:0.5rem}
 	.qrcode-title-panel{ height:200px}

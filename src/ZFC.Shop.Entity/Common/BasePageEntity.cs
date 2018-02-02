@@ -15,12 +15,18 @@ namespace ZFC.Shop.Entity
 
         public BasePageEntity() : this(1, 10)
         {
+
         }
 
         public BasePageEntity(int pi, int ps)
         {
             this.PageIndex = pi;
             this.PageSize = ps;
+        }
+
+        public virtual int GetTotalPageCount()
+        {
+            return (Total + PageSize - 1) / PageSize;
         }
     }
 }

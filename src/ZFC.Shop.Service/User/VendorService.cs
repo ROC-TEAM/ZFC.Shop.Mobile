@@ -11,6 +11,11 @@ namespace ZFC.Shop.Service
 {
     public interface IVendorService : IDependency
     {
+        /// <summary>
+        /// 获得供应商分页列表
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         IEnumerable<VendorEntity> GetVendorList(VendorQueryEntity model);
     }
 
